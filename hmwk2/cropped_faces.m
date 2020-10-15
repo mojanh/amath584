@@ -39,6 +39,7 @@ end
 figure(2);
 plot(diag(S),'ko','Linewidth',[2]);
 set(gca,'Fontsize',[14],'Xlim',[0,64]); xlabel('singular values'); ylabel('\sigma');
+title('Plot of Singular Values, Diagonal Values of S Matrix');
 
 % display eigenfaces
 figure(3);
