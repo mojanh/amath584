@@ -4,7 +4,7 @@ clear all; close all; clc
 m1 = 40; n1 = 30; % m > n
 cond_numbers = [];
 
-for i1 = 1:100
+for i1 = 1:1000
     A1 = randn(m1,n1);
     cond_numbers(i1) = cond(A1);
     m1 = m1 + 1;
