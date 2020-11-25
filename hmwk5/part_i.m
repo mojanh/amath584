@@ -21,9 +21,9 @@ v_curr = ones(m,1);
 % power iteration method
 for k = 1:20
 	w = A*v_curr;
-	v_curr=w/norm(w);
+	v_curr=w/norm(w); % normalize
 
-	lambda(k) = v_curr'*A*v_curr;
+	lambda(k) = v_curr'*A*v_curr; % Rayleigh Quotient
     power_eigenvalue = max(lambda);
     error(k) = abs(true_eigenvalue - power_eigenvalue);
 end
