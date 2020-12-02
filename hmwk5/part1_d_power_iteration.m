@@ -14,11 +14,11 @@ true_max_eigenvalue = max(true_eigenval);
 v_curr = zeros(m,1); v_curr(1) = 1;  % initial eigenvector
 
 for k = 1:20
-	w = A*v_curr;
-	v_curr=w/norm(w); % normalize
+    w = A*v_curr;
+    v_curr=w/norm(w); % normalize
 
-	lambda(k) = v_curr'*A*v_curr; % Rayleigh Quotient
-	error(k) = abs(true_max_eigenvalue - lambda(k));
+    lambda(k) = v_curr'*A*v_curr; % Rayleigh Quotient
+    error(k) = abs(true_max_eigenvalue - lambda(k));
 end
 
 figure(1); plot(error); xlim([1 20]); ylabel('absolute error'); xlabel('iterations'); 
