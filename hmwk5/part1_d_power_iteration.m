@@ -18,7 +18,7 @@ for k = 1:20
 	v_curr=w/norm(w); % normalize
 
 	lambda(k) = v_curr'*A*v_curr; % Rayleigh Quotient
-    error(k) = abs(true_max_eigenvalue - lambda(k));
+	error(k) = abs(true_max_eigenvalue - lambda(k));
 end
 
 figure(1); plot(error); xlim([1 20]); ylabel('absolute error'); xlabel('iterations'); 
