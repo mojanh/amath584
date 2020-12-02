@@ -10,7 +10,7 @@ m = 10;
 A_rand = rand(m,m);
 A = A_rand*A_rand';
 [eigenvec, eigenval] = eigs(A,m);
-true_eigenval = sort(diag(eigenval)); % sorted 10x1 matrix of growth truth eigenvalues
+true_eigenval = sort(diag(eigenval)); % sorted 10x1 matrix of ground truth eigenvalues
 
 % b) Power Iteration Method
 true_max_eigenvalue = max(true_eigenval);
