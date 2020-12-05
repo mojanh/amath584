@@ -25,36 +25,48 @@ for a = 1:39
     end
 end
 
-% Power iteration method
-A = corr(cropped_images); % correlation matrix
-A(isinf(A)|isnan(A)) = 0;
-[eigenvec, eigenval] = eigs(A,2432);
-true_eigenval = sort(diag(eigenval)); % sorted matrix of ground truth eigenvalues
-
-v_curr = zeros(2432,1); v_curr(1) = 1;  % initial eigenvector
-
-for k = 1:100
-    w = A*v_curr;
-    v_curr=w/norm(w); % normalize
-    lambda(k) = v_curr'*A*v_curr; % Rayleigh Quotient
-end
-
 % SVD
-[U,S,V]=svd(A,'econ');
+[U,S,V]=svd(cropped_images,'econ');
 
 % Randomized Sampling method to reconstruct SVD
-k = 100;
+k = 1000;
 omega = randn(2432,k);
-Y = A*omega;
-size(Y);
-[Q,R] = qr(Y, 0);
+Y = cropped_images*omega;
+[Q,R] = qr(Y,0);
 
-B = Q'*A;
-[U_tilde, S_tilde, V_tilde] = svd(B, 'econ');
+B = Q'*cropped_images;
+[U_tilde, S_tilde, V_tilde] = svd(B,'econ');
 U_recon = Q*U_tilde;
+S_recon = Q*S_tilde;
 
 figure(1);
 plot(U(:,1),'k');
+title('Leading order true SVD mode');
 
 figure(2);
+plot(U_recon(:,1),'k:');
+title('Leading order reconstructed SVD mode');
+
+figure(3);
+plot(U(:,2),'k');
+title('Leading order true SVD mode');
+
+figure(4);
+plot(U_recon(:,2),'k:');
+title('Leading order reconstructed SVD mode');
+
+figure(5);
+plot(U(:,3),'k');
+title('Leading order true SVD mode');
+
+figure(6);
 plot(U_recon(:,3),'k:');
+title('Leading order reconstructed SVD mode');
+
+figure(7);
+plot(diag(S)/sum(diag(S)),'ko','Linewidth',[2]); xlabel('singular values'); ylabel('\sigma');
+title('True SVD singular values');
+
+figure(8);
+plot(diag(S_recon)/sum(diag(S_recon)),'ko','Linewidth',[2]); xlabel('singular values'); ylabel('\sigma');
+title('Reconstructed SVD singular values');
