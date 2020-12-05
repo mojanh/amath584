@@ -64,9 +64,9 @@ plot(U_recon(:,3),'k:');
 title('Third order reconstructed SVD mode');
 
 figure(7);
-plot(diag(S)/sum(diag(S)),'ko','Linewidth',[2]); xlabel('singular values'); ylabel('\sigma');
+plot(diag(S),'ko','Linewidth',[2]); xlabel('singular values'); ylabel('\sigma');
 title('True SVD singular values');
 
 figure(8);
-plot(diag(S_recon)/sum(diag(S_recon)),'ko','Linewidth',[2]); xlabel('singular values'); ylabel('\sigma');
+plot(diag(S_recon),'ko','Linewidth',[2]); xlabel('singular values'); ylabel('\sigma');
 title('Reconstructed SVD singular values');
