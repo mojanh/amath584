@@ -49,19 +49,19 @@ title('Leading order reconstructed SVD mode');
 
 figure(3);
 plot(U(:,2),'k');
-title('Leading order true SVD mode');
+title('Second order true SVD mode');
 
 figure(4);
 plot(U_recon(:,2),'k:');
-title('Leading order reconstructed SVD mode');
+title('Second order reconstructed SVD mode');
 
 figure(5);
 plot(U(:,3),'k');
-title('Leading order true SVD mode');
+title('Third order true SVD mode');
 
 figure(6);
 plot(U_recon(:,3),'k:');
-title('Leading order reconstructed SVD mode');
+title('Third order reconstructed SVD mode');
 
 figure(7);
 plot(diag(S)/sum(diag(S)),'ko','Linewidth',[2]); xlabel('singular values'); ylabel('\sigma');
